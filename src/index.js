@@ -3,4 +3,3 @@ import _ from 'lodash';
 import "./style.scss";
 //import './style.css';
 
-console.log('We are there');
