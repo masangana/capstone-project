@@ -11,3 +11,9 @@ font-family: 'Crete Round', serif;
 /*  color2 774360 */
 /* color3 B25068
 color4 E7AB79 */
+
+.reservation-body {
+  width: 80%;
+  height: 90%;
+  border: 2px solid red;
+}
