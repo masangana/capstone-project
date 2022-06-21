@@ -7,3 +7,9 @@ import EventListerners from './modules/ReservationEventListener';
 EventListerners.buttonSubmit()
 // AddReservation.buttonSubmit()
 // AddReservation.getDataToUse()
+import "./style.scss";
+import getData from "./foodapi.js";
+//import './style.css';
+
+// load the basic info
+getData()
