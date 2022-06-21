@@ -7,22 +7,22 @@ $color-white-dark: #aeaeae;
 $color-orange-dure: #8d4502;
 
 * {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* styling navlist */
 #navlist {
-    background-color: $color-blue;
-    position: absolute;
-    width: 100%;
-    position: fixed;
-    z-index: 999;
-    /* styling navlist anchor element */
-     a {
+  background-color: $color-blue;
+  position: absolute;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+/* styling navlist anchor element */
+  a {
     float:left;
     display: block;
     color: #f2f2f2;
@@ -31,10 +31,11 @@ $color-orange-dure: #8d4502;
     text-decoration: none;
     font-size: 15px;
     &:hover {
-        background-color: $color-white-dark;
-        color: $color-orange-dure;
-     }
+      background-color: $color-white-dark;
+      color: $color-orange-dure;
+      }
     }
+    
 }
 
 .navlist-right{
@@ -82,98 +83,94 @@ footer {
     }
   }
  
-  .product {
-    margin-left: 75px;
-    margin-right: 75px;
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 30px;
-    h2{
-        font-size: 40px;
+.product {
+  margin-left: 75px;
+  margin-right: 75px;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 30px;
+  h2{
+    font-size: 40px;
+    color: $color-orange;
+    font-weight: 800;
+  }
+  p{
+    font-size: 28px;
+  }
+  .pro-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    flex-wrap: wrap;
+  .pro{
+    width: 20%;
+    min-width: 200px;
+    padding: 10px 12px;
+    border: 1px solid $color-orange;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.09);
+    margin: 15px 20px;
+    position: relative;
+    &:hover {
+      box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.18);
+    }
+    img {
+      width: 100%;
+      border-radius: 20px;
+    }
+    .des {
+      text-align: start;
+      padding: 10px 0;
+      span{
         color: $color-orange;
-        font-weight: 800;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      h5{
+        padding-top: 7px;
+        color: $color-orange;
+        font-size: 14px;
+      }
+      i {
+        font-size: 12px;
+        color: $color-orange;
+      }
+      h4 {
+        padding-top: 7px;
+        font-size: 15px;
+        font-weight: 700;
+        color: $color-orange;
+      }
     }
-    p{
-        font-size: 28px;
+    .like {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50px;
+      background-color: $color-white-dark;
+      color: $color-blue;
+      border: 1px solid $color-blue;
+      position: absolute;
+      bottom: 20px;
+      right: 15px;
     }
-    .pro-container{
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-        flex-wrap: wrap;
-        .pro{
-            width: 20%;
-            min-width: 200px;
-            padding: 10px 12px;
-            border: 1px solid $color-orange;
-            border-radius: 20px;
-            cursor: pointer;
-            box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.09);
-            margin: 15px 20px;
-            position: relative;
-            &:hover {
-                box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.18);
-            }
-            img {
-                width: 100%;
-                border-radius: 20px;
-            }
-            .des {
-                text-align: start;
-                padding: 10px 0;
-                span{
-                    color: $color-orange;
-                    font-size: 12px;
-                    font-weight: 600;
-                }
-                h5{
-                    padding-top: 7px;
-                    color: $color-orange;
-                    font-size: 14px;
-                }
-                i {
-                    font-size: 12px;
-                    color: $color-orange;
-                }
-                h4 {
-                    padding-top: 7px;
-                    font-size: 15px;
-                    font-weight: 700;
-                    color: $color-orange;
-                }
-            }
-            #like {
-                width: 40px;
-                height: 40px;
-                line-height: 40px;
-                border-radius: 50px;
-                background-color: $color-white-dark;
-                color: $color-blue;
-                border: 1px solid $color-blue;
-                position: absolute;
-                bottom: 20px;
-                right: 15px;
-            }
-    }
-    }
-    
+  }
+}
+
 }
 
 
 //button
+.button-cont{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  flex-direction: column;
 
-
-
-  .button-cont{
-
-    display: flex;
-    align-items:center;
-    justify-content: center;
-    flex-direction: column;
-
-    .button {
-      margin-bottom: 15px;
-      backface-visibility: hidden;
+  .button {
+    margin-bottom: 15px;
+    backface-visibility: hidden;
     position: relative;
     cursor: pointer;
     display: inline-block;
@@ -184,32 +181,32 @@ footer {
     border-width: 1px 1px 1px 1px;
     padding: 10px 20px 10px 20px;
     box-shadow: inset 0px 1px 0px rgba(255,255,255,1),0px 1px 3px rgba(0,0,0,0.3);
-        color: #fff;
+    color: #fff;
     font-size: 16px;
     font-family: Helvetica Neue;
     font-weight: 900;
     font-style: normal;
     text-shadow: 0px -1px 0px rgba(0,0,0,0.4)
-    }
-    .button > div {
-        color: #999;
+  }
+  .button > div {
+    color: #999;
     font-size: 10px;
     font-family: Helvetica Neue;
     font-weight: initial;
     font-style: normal;
     text-align: center;
     margin: 0px 0px 0px 0px
-    }
-    .button > i {
-        font-size: 1em;
+  }
+  .button > i {
+    font-size: 1em;
     border-radius: 0px;
     border: 0px solid transparent;
     border-width: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
     position: static
-    }
-    .button > .ld {
-        font-size: initial
-    }
   }
+  .button > .ld {
+    font-size: initial
+  }
+}
