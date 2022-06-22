@@ -3,6 +3,7 @@ import _ from 'lodash';
 import './style.scss';
 import EventListerners from './modules/ReservationEventListener';
 import getData from './foodapi.js';
+import AddReservation from './modules/AddReservation'
 
 EventListerners.buttonSubmit();
 // import './style.css';
@@ -11,3 +12,4 @@ EventListerners.buttonSubmit();
 getData();
 EventListerners.reserveBtn();
 EventListerners.closeBtn();
+AddReservation.getDataToUse()

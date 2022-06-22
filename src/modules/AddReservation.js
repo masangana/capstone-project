@@ -37,7 +37,14 @@ export default class AddReservation {
 
     static getDataToUse = async () => {
       try {
-        const URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations?item_id=0';
+      //   const mainBody = document.querySelector('.product');
+      // let theID;
+      // mainBody.addEventListener('click', (e) => {
+      //   const tar = e.target;
+      //   theID = tar.parentElement.parentElement.parentElement.children[1].children[2].children[1].getAttribute('id');
+      //   return parseFloat(theID)
+      // })
+        const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations?item_id=10`;
         const objfromAPI = await AddReservation.getData({ url: URL });
         return objfromAPI;
       } catch (error) {

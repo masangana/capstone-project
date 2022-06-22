@@ -14,14 +14,15 @@ export default class EventListerners {
       formBtn.addEventListener('submit', async (e) => {
         try {
           e.preventDefault();
-          // const itemId = e.target.parentElement
+        const reserve = AddReservation.getDataToUse()
           const [username, dateStart, dateEnd] = Array.from(formBtn.elements);
           const creatNew = AddReservation.createDataToPostToAPI({
-            item_id: theID,
+            item_id: '10',
             username: username.value,
             date_start: dateStart.value,
             date_end: dateEnd.value,
           });
+          console.log(reserve)
           username.value = '';
           dateStart.value = '';
           dateEnd.value = '';
@@ -34,7 +35,6 @@ export default class EventListerners {
 
     static reserveBtn = () => {
       const mainBody = document.querySelector('.product');
-
       mainBody.addEventListener('click', (e) => {
         const tar = e.target;
         const parent = e.target.parentElement.parentElement.parentElement;
