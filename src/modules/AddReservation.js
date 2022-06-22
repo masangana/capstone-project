@@ -31,7 +31,6 @@ export default class AddReservation {
         const data = await fetchRequest.makeRequest();
         return data;
       } catch (error) {
-        console.log('This is the error');
         throw new Error(error);
       }
     }
@@ -53,9 +52,10 @@ export default class AddReservation {
     //   postReservationURL: `${AddReservation.appID}/reservations/`,
     // }
 
-    static createDataToPostToAPI = async ({itemId, username, dateStart, dateEnd}) => {
-      
-        try {
+    static createDataToPostToAPI = async ({
+      itemId, username, dateStart, dateEnd,
+    }) => {
+      try {
         const reservationFromUI = new ReservationClass(itemId, username, dateStart, dateEnd);
         const URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations/';
         // `${AddReservation.endPointMap.mainurl}${AddReservation.endPointMap.postReservationURL}`

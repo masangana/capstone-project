@@ -86,12 +86,12 @@ footer {
 .reservation-body {
     width: 70vw;
     height: 120vh;
-    border: 2px solid red;
+    border: 2px solid transparent;
 
 
     // position: fixed;
     margin: auto auto;
-background-color: green;
+// background-color: green;
   left: 10%;
   bottom: 5%;
   display: none;
@@ -109,18 +109,22 @@ background-color: green;
   }
 
   .closeBTNbody {
-    position: fixed;
-    top: 10%;
-    right: 16%;
-    border: 3px blue solid;
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+    // top: 10%;
+    // right: 16%;
+    // border: 3px blue solid;
   }
 
   .theImage {
-    font-size: 300px;
+    width: 300px;
+    border-radius: 10px;
   }
 
   .image-body{
-    border: 4px solid yellow;
+    // border: 4px solid yellow;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -131,9 +135,9 @@ background-color: green;
 
   .under-space {
     width: 100%;
-    background-color: #8d4502;
+    // background-color: #8d4502;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     border: #8d4502 solid 3px;
     height: 10%;
@@ -174,6 +178,9 @@ background-color: green;
     width: 70px;
 }
 
+
+
+// Main Page
 .product {
   margin-left: 75px;
   margin-right: 75px;

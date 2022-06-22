@@ -1,13 +1,11 @@
-
 const container = document.getElementById('product');
 const image = new Image();
 
 const getData = async () => {
-  await  fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood')
-  .then(res => res.json())
-  .then(res => {
-    
-    res.meals.forEach((element, index) => {
+  await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood')
+    .then((res) => res.json())
+    .then((res) => {
+      res.meals.forEach((element, index) => {
         image.src = element.strMealThumb;
         container.innerHTML += `
         <div class="pro">
@@ -16,18 +14,17 @@ const getData = async () => {
             <h5>${element.strMeal}</h5>
             <div class="star">
                 <i class="fas fa-star"></i>
-                <span>41</span>
+                <span>${element.idMeal}</span>
             </div>
             <div class="button-cont">
                 <button class="button comment-button" id="com${index}">Comment</button>
-                <button class="button reservation-button" id="res${index}">Reservation</button>
+                <button class="button reservation-button" id="${index}">Reservation</button>
             </div>
         </div>
             <a href="#" target="_blank" rel="noopener noreferrer" class="fas fa-thumbs-up like" id="like"></a>
-        </div>`
+        </div>`;
+      });
     });
-})
-  };
-  
-  export default getData;
-  
+};
+
+export default getData;
