@@ -1,15 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import _ from 'lodash';
 import './style.scss';
-// import AddReservation from './modules/AddReservation.js';
 import EventListerners from './modules/ReservationEventListener';
+import getData from './foodapi.js';
 
-EventListerners.buttonSubmit()
-// AddReservation.buttonSubmit()
-// AddReservation.getDataToUse()
-import "./style.scss";
-import getData from "./foodapi.js";
-//import './style.css';
+EventListerners.buttonSubmit();
+// import './style.css';
 
 // load the basic info
-getData()
+getData();
+EventListerners.reserveBtn();
+EventListerners.closeBtn();
