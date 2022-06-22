@@ -59,9 +59,7 @@ export default class AddReservation {
     //   postReservationURL: `${AddReservation.appID}/reservations/`,
     // }
 
-    static createDataToPostToAPI = async ({
-      itemId, username, dateStart, dateEnd,
-    }) => {
+    static createDataToPostToAPI = async ({username, dateStart, dateEnd}, itemId) => {
       try {
         const reservationFromUI = new ReservationClass(itemId, username, dateStart, dateEnd);
         const URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations/';
