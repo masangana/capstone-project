@@ -1,4 +1,5 @@
 import AddReservation from './AddReservation.js';
+import ReservationClass from './ReservationClass.js';
 
 export default class EventListerners {
     static buttonSubmit = () => {
@@ -6,17 +7,20 @@ export default class EventListerners {
       formBtn.addEventListener('submit', async (e) => {
         try {
           e.preventDefault();
-          const reserve = AddReservation.getDataToUse()
+          // const reserve = AddReservation.getDataToUse();
           const [username, dateStart, dateEnd] = Array.from(formBtn.elements);
-          let theID = 10
-          const creatNew = AddReservation.createDataToPostToAPI({
-            username: username.value,
-          date_start: dateStart.value,
-          date_end: dateEnd.value,}, theID);
-          console.log(reserve)
+          const theID = 10;
+          const user = username.value;
+          const start = dateStart.value;
+          const end = dateEnd.value;
+          const ReservationClas = new ReservationClass(user, start, end)
+          const creatNew = AddReservation.postData(ReservationClas, theID);
+          // const creatNew = AddReservation.createDataToPostToAPI(username.value, dateStart.value, dateEnd.value);
+          console.log(creatNew);
           username.value = '';
           dateStart.value = '';
           dateEnd.value = '';
+          AddReservation.apendIt()
           return creatNew;
         } catch (error) {
           throw new Error(error);
@@ -64,4 +68,17 @@ export default class EventListerners {
         mainBody.classList.remove('active');
       });
     }
-}
+
+
+    static windowLoad = () => {
+      window.addEventListener('load', async () => {
+        try {
+          const displayIndexScoreName = await AddReservation.displayOnUI();
+          return displayIndexScoreName;
+        } catch (error) {
+          throw new Error(error);
+        }
+      });
+    }
+
+  }
