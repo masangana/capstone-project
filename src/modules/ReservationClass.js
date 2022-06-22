@@ -1,12 +1,15 @@
 export default class ReservationClass {
-    username;
+  theID;
+
+  username;
 
     dateStart;
 
     dateEnd;
 
-    constructor(username, dateStart, dateEnd) {
+    constructor(theID, username, dateStart, dateEnd) {
       this.username = username;
+      this.theID = theID;
       this.dateStart = dateStart;
       this.dateEnd = dateEnd;
     }

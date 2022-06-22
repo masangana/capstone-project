@@ -14,8 +14,8 @@ export default class AddReservation {
     }
 
     static postData = async ({
-      item_id, username, date_start, date_end,
-    }) => {
+      theID: item_id, username, dateStart: date_start, dateEnd: date_end,
+    }, url) => {
       try {
         const fetchRequest = new FetchRequestClass({
           method: 'POST',

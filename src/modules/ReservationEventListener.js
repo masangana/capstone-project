@@ -13,9 +13,9 @@ export default class EventListerners {
           const user = username.value;
           const start = dateStart.value;
           const end = dateEnd.value;
-          const ReservationClas = new ReservationClass(user, start, end)
-          const creatNew = AddReservation.postData(ReservationClas, theID);
-          // const creatNew = AddReservation.createDataToPostToAPI(username.value, dateStart.value, dateEnd.value);
+          const ReservationClas = new ReservationClass(theID, user, start, end)
+          const URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations/';
+          const creatNew = AddReservation.postData(ReservationClas, URL);
           console.log(creatNew);
           username.value = '';
           dateStart.value = '';
