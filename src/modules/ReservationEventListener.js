@@ -9,7 +9,8 @@ export default class EventListerners {
           e.preventDefault();
           // const reserve = AddReservation.getDataToUse();
           const [username, dateStart, dateEnd] = Array.from(formBtn.elements);
-          const theID = 10;
+          const theID = 700;
+          const UL = document.querySelector('.reservation-ul');
           const user = username.value;
           const start = dateStart.value;
           const end = dateEnd.value;
@@ -20,7 +21,12 @@ export default class EventListerners {
           username.value = '';
           dateStart.value = '';
           dateEnd.value = '';
-          AddReservation.apendIt()
+          
+          setTimeout(function( ) {
+            UL.innerHTML = ''
+            AddReservation.displayOnUI()
+          }, 500)
+          // EventListerners.windowLoad()
           return creatNew;
         } catch (error) {
           throw new Error(error);
