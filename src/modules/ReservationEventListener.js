@@ -3,6 +3,13 @@ import AddReservation from './AddReservation.js';
 export default class EventListerners {
     static buttonSubmit = () => {
       const formBtn = document.querySelector('.reservation-date-form');
+      const mainBody = document.querySelector('.product');
+      let theID;
+      mainBody.addEventListener('click', (e) => {
+        const tar = e.target;
+        theID = tar.parentElement.parentElement.parentElement.children[1].children[2].children[1].getAttribute('id');
+        return theID
+      })
 
       formBtn.addEventListener('submit', async (e) => {
         try {
@@ -10,7 +17,7 @@ export default class EventListerners {
           // const itemId = e.target.parentElement
           const [username, dateStart, dateEnd] = Array.from(formBtn.elements);
           const creatNew = AddReservation.createDataToPostToAPI({
-            item_id: 0,
+            item_id: theID,
             username: username.value,
             date_start: dateStart.value,
             date_end: dateEnd.value,
