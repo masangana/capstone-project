@@ -13,13 +13,6 @@ getData();
 EventListerners.reserveBtn();
 EventListerners.closeBtn();
 
-setTimeout(() => {
-// Update Likes
-
-}, "1000")
-
-
-
 
 
 console.log(countItem())
@@ -28,6 +21,10 @@ window.onload = () => {
   let likeBtn;
   let likeNumber;
   setTimeout(() => {
+
+    let commentbutton = document.querySelectorAll('.comment-button')
+    
+    console.log(commentbutton)
     //show the like
     likeNumber = document.querySelectorAll('.likeNumber');
     likeNumber.forEach((element) => {
@@ -48,6 +45,7 @@ window.onload = () => {
     likeBtn.forEach((element) => {
       element.addEventListener("click", () => {
         postLike(element.getAttribute("data-index"));
+        getData();
       });
     });
   }, "1000")
