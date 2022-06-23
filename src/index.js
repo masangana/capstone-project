@@ -21,7 +21,6 @@ window.onload = () => {
   let likeBtn;
   let likeNumber;
   setTimeout(() => {
-    
     //show the like
     likeNumber = document.querySelectorAll('.likeNumber');
     likeNumber.forEach((element) => {
@@ -42,9 +41,9 @@ window.onload = () => {
     likeBtn.forEach((element) => {
       element.addEventListener("click", () => {
         postLike(element.getAttribute("data-index"));
-        getData();
+        
         setTimeout(() => {
-           
+        
         }, "1000")
         
       });
@@ -52,5 +51,3 @@ window.onload = () => {
   }, "1000")
 };
 
-
-getLikes(); 

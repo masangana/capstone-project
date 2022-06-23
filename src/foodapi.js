@@ -4,19 +4,6 @@ import {getLikes, postLike} from './modules/likeapi.js'
 const container = document.getElementById('product');
 const image = new Image();
 
-
-
-const getit2 = async (id)=>{
-    const likes = await getLikes()
-    let filteredResult
-     filteredResult = likes.find((e) => e.item_id == id);
-     if(filteredResult === undefined){
-        return `<span>0</span>`
-     }else{
-        return `<span>${filteredResult.likes}</span>`
-     }
-}
-
 const getData = async () => {
   await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood')
     .then((res) => res.json())
@@ -43,7 +30,7 @@ const getData = async () => {
                 <h5>${element.strMeal}</h5>
                 <div class="star">
                     <i class="fas fa-star"></i>
-                    <span data-index="${element.idMeal}" class="likeNumber">${element.idMeal}</span>
+                    <span data-index="${element.idMeal}" class="likeNumber">0</span>
                     </div>
                 <div class="button-cont">
                     <button class="button comment-button" id="com${index}">Comment</button>
