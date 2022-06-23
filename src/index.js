@@ -9,6 +9,7 @@ import AddReservation from './modules/AddReservation';
 // export { individualAPI }
 getData();
 
+
 EventListerners.buttonSubmit();
 // specialID()
 // load the basic info
@@ -16,3 +17,17 @@ EventListerners.reserveBtn();
 EventListerners.closeBtn();
 AddReservation.getDataToUse();
 EventListerners.windowLoad()
+
+
+const IDnum = () =>   {
+    window.addEventListener('load', () => {
+       setTimeout(function() {
+       const allOF = document.querySelectorAll('.reservation-button')
+       allOF.forEach((button) => {
+        console.log(button.getAttribute('id'))
+       })
+   }, 500)
+    })
+   }
+
+   IDnum()

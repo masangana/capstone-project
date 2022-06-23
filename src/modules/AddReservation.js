@@ -48,20 +48,9 @@ export default class AddReservation {
 
     static getDataToUse = async () => {
       try {
-        const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations?item_id=50`;
+    const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations?item_id=100`;
         const objfromAPI = await AddReservation.getData({ url: URL });
         return objfromAPI;
-      } catch (error) {
-        throw new Error(error);
-      }
-    }
-
-    static createDataToPostToAPI = async (username, dateStart, dateEnd, itemId) => {
-      try {
-        const reservationFromUI = new ReservationClass(itemId, username, dateStart, dateEnd);
-        const URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations/';
-        const postItNow = await AddReservation.postData({ reservationFromUI }, URL);
-        return postItNow;
       } catch (error) {
         throw new Error(error);
       }
@@ -71,21 +60,12 @@ export default class AddReservation {
       try {
         const fromAPI = await AddReservation.getDataToUse();
         fromAPI.forEach((one) => {
-        // one.date_end.replace(/-/ig, '/')
-
           AddReservation.htmlForReservationDOM(one);
         });
       } catch (error) {
         throw new Error(error);
       }
-      // const formBtn = document.querySelector('.reservation-date-form');
-      // const [username, dateStart, dateEnd] = Array.from(formBtn.elements);
-      // const user = username.value
-      // const start = dateStart.value
-      // const end = dateEnd.value
-      // console.log(user, start, end)
-      // const final = AddReservation.htmlForReservationDOM(user, start, end)
-      // return final;
+
     }
 
     static htmlForReservationDOM = ({ username, date_start, date_end }) => {
@@ -98,3 +78,40 @@ export default class AddReservation {
       UL.appendChild(LI);
     }
 }
+
+// const IDnum = () =>   {
+//   window.addEventListener('load', () => {
+//      setTimeout(function() {
+//      const allOF = document.querySelectorAll('.reservation-button')
+//      console.log(allOF)
+//  }, 500)
+//   })
+//  }
+
+//  IDnum().forEach((pupup) => {
+//   pupup.addEventListener('click', async (e) => {
+//     const id = e.target.closest('.food').getAttribute('dataset');
+//     const res = await api.getItemByID(id);
+//     const modal = document.querySelector('.modal');
+//     modal.setAttribute('dataset', `${id}`);
+//     modalContainer.modalTitle.innerHTML = res.meals[0].strMeal;
+//     modalContainer.modalClose.innerHTML = '&times;';
+//     modalContainer.itemImg.setAttribute('src', `${res.meals[0].strMealThumb}`);
+//     modalContainer.itemDescription.innerHTML = `${res.meals[0].strInstructions}`;
+//     const storedComments = await api.getComments(id);
+//     loadComments(storedComments);
+//     openModal(modal);
+//   });
+// });
+
+
+// modalContainer.submitButton.addEventListener('click', async (e) => {
+//   const commentName = document.querySelector('.comment-name');
+//   const comment = document.querySelector('.comment');
+//   const itemID = e.target.closest('.modal').getAttribute('dataset');
+//   await api.postComments(itemID, commentName.value, comment.value);
+//   const storedComments = await api.getComments(itemID);
+//   loadComments(storedComments);
+//   commentName.value = '';
+//   comment.value = '';
+// });

@@ -84,16 +84,18 @@ footer {
 
 //   Reservation
 .reservation-body {
-    width: 70vw;
-    height: 120vh;
+    // width: 70vw;
+    padding: 50px;
+    // background-color: green;
+    // height: 120vh;
     border: 2px solid transparent;
-
+margin-bottom: 100px;
 
     // position: fixed;
     margin: auto auto;
 // background-color: green;
-  left: 10%;
-  bottom: 5%;
+  // left: 10%;
+  // bottom: 5%;
   display: none;
 //   z-index: 20;
 //   backdrop-filter: blur(2px);

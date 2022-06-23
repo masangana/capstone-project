@@ -5,11 +5,15 @@ export default class EventListerners {
     static buttonSubmit = () => {
       const formBtn = document.querySelector('.reservation-date-form');
       formBtn.addEventListener('submit', async (e) => {
+        
+        
+        
         try {
+
           e.preventDefault();
           // const reserve = AddReservation.getDataToUse();
           const [username, dateStart, dateEnd] = Array.from(formBtn.elements);
-          const theID = 50;
+          const theID = 100;
           const UL = document.querySelector('.reservation-ul');
           const user = username.value;
           const start = dateStart.value;
@@ -17,16 +21,15 @@ export default class EventListerners {
           const ReservationClas = new ReservationClass(theID, user, start, end)
           const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations/`;
           const creatNew = AddReservation.postData(ReservationClas, URL);
-          console.log(creatNew);
+          // console.log(creatNew);
           username.value = '';
           dateStart.value = '';
           dateEnd.value = '';
-          
+
           setTimeout(function( ) {
             UL.innerHTML = ''
             AddReservation.displayOnUI()
-          }, 500)
-          // EventListerners.windowLoad()
+          }, 1000)
           return creatNew;
         } catch (error) {
           throw new Error(error);
@@ -34,43 +37,14 @@ export default class EventListerners {
       });
     }
 
-    // static fetchIt = () => {
-    //   const mainBody = document.querySelector('.product');
-    //   mainBody.addEventListener('click', async (e) => {
-    //    let num;
-    //     const tar = e.target;
-    //     if (!tar.classList.contains('reservation-button')) return;
-    // else {
-    // num =  tar.getAttribute('id')
-    //  num
-    // }
-    //   // console.log(num)
-    //   await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${num}`)
-    //   .then((res) => res.json())
-    //   .then((res) => {
-    //     res.meals
-    //   })
-    //     // res.meals.forEach((element, index) => {
-    //   })
-    // }
-
-
     static reserveBtn =  () => {
       const mainBody = document.querySelector('.product');
       mainBody.addEventListener('click',async (e) => {
         const tar = e.target;
         const parent = e.target.parentElement.parentElement.parentElement;
-        const src = parent.children[0].getAttribute('src');
         const foodTag = parent.parentElement.parentElement;
-        const pickName = parent.children[1].children[0].textContent;
         const underSpace = document.querySelector('.under-space');
         const appendIt = document.querySelector('.image-body');
-        const starNumber = parent.children[1].children[1].children[1].textContent;
-
-        
-        // setTimeout(function() {
-          // const API = EventListerners.fetchIt()
-          // console.log(API)
           let num;
         if (!tar.classList.contains('reservation-button')) return null;
     else {
@@ -79,15 +53,9 @@ export default class EventListerners {
     await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${num}`)
     .then((res) => res.json())
     .then((res) => {
-      // console.log(res.meals)
       const useThis = res.meals
-      // res.meals.forEach((element, index) => {
-      console.log(useThis)
       useThis.forEach((ele) => {
-
-      
         const underSpaceContent = `
-
             <h3 class="instruction-reserve-h3"><span class"instruction-span">Steps to follow to prepare ${ele.strMeal} is as follows:<br> <br></span> ${ele.strInstructions}</h3>`;
         const imageIt = `
             <img src="${ele.strMealThumb}" class="theImage" alt="${ele.strMeal}" >
@@ -112,7 +80,6 @@ export default class EventListerners {
       mainBody.addEventListener('click', (e) => {
         const tar = e.target;
         if (!tar.classList.contains('closeBTN')) return null;
-
         foodTag.style.display = 'block';
         mainBody.classList.remove('active');
       });
