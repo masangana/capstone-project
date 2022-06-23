@@ -50,9 +50,9 @@ const getData = async () => {
                     <button class="button reservation-button" id="${index}">Reservation</button>
                 </div>
             </div>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="fas fa-thumbs-up like" id="like"></a>
+                <a data-index="${element.idMeal}" href="#" class="fas fa-thumbs-up like monlien" id="like"></a>
             </div>`;
-        getit2(element.idMeal)
+        //getit2(element.idMeal)
       });
     });
 };
