@@ -4,7 +4,7 @@
   "description": "If you are not familiar with linters, read [root level README](../README.md).",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack"
@@ -28,6 +28,7 @@
     "eslint-plugin-import": "^2.26.0",
     "hint": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.1.1",
     "mini-css-extract-plugin": "^2.6.1",
     "sass": "^1.52.3",
     "sass-loader": "^13.0.0",
