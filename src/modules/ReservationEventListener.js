@@ -1,6 +1,6 @@
 import AddReservation from './AddReservation.js';
 import ReservationClass from './ReservationClass.js';
-
+// import { individualAPI } from '../index.js';
 export default class EventListerners {
     static buttonSubmit = () => {
       const formBtn = document.querySelector('.reservation-date-form');
@@ -9,13 +9,13 @@ export default class EventListerners {
           e.preventDefault();
           // const reserve = AddReservation.getDataToUse();
           const [username, dateStart, dateEnd] = Array.from(formBtn.elements);
-          const theID = 700;
+          const theID = 50;
           const UL = document.querySelector('.reservation-ul');
           const user = username.value;
           const start = dateStart.value;
           const end = dateEnd.value;
           const ReservationClas = new ReservationClass(theID, user, start, end)
-          const URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations/';
+          const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations/`;
           const creatNew = AddReservation.postData(ReservationClas, URL);
           console.log(creatNew);
           username.value = '';
@@ -34,9 +34,30 @@ export default class EventListerners {
       });
     }
 
-    static reserveBtn = () => {
+    // static fetchIt = () => {
+    //   const mainBody = document.querySelector('.product');
+    //   mainBody.addEventListener('click', async (e) => {
+    //    let num;
+    //     const tar = e.target;
+    //     if (!tar.classList.contains('reservation-button')) return;
+    // else {
+    // num =  tar.getAttribute('id')
+    //  num
+    // }
+    //   // console.log(num)
+    //   await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${num}`)
+    //   .then((res) => res.json())
+    //   .then((res) => {
+    //     res.meals
+    //   })
+    //     // res.meals.forEach((element, index) => {
+    //   })
+    // }
+
+
+    static reserveBtn =  () => {
       const mainBody = document.querySelector('.product');
-      mainBody.addEventListener('click', (e) => {
+      mainBody.addEventListener('click',async (e) => {
         const tar = e.target;
         const parent = e.target.parentElement.parentElement.parentElement;
         const src = parent.children[0].getAttribute('src');
@@ -45,12 +66,32 @@ export default class EventListerners {
         const underSpace = document.querySelector('.under-space');
         const appendIt = document.querySelector('.image-body');
         const starNumber = parent.children[1].children[1].children[1].textContent;
+
+        
+        // setTimeout(function() {
+          // const API = EventListerners.fetchIt()
+          // console.log(API)
+          let num;
+        if (!tar.classList.contains('reservation-button')) return null;
+    else {
+    num =  tar.getAttribute('id')
+    }    
+    await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${num}`)
+    .then((res) => res.json())
+    .then((res) => {
+      // console.log(res.meals)
+      const useThis = res.meals
+      // res.meals.forEach((element, index) => {
+      console.log(useThis)
+      useThis.forEach((ele) => {
+
+      
         const underSpaceContent = `
-            <h3>${pickName} has ${starNumber} stars</h3>
-            `;
+
+            <h3 class="instruction-reserve-h3"><span class"instruction-span">Steps to follow to prepare ${ele.strMeal} is as follows:<br> <br></span> ${ele.strInstructions}</h3>`;
         const imageIt = `
-            <img src="${src}" class="theImage" alt="${pickName}" >
-            <h1>${pickName}</h1>
+            <img src="${ele.strMealThumb}" class="theImage" alt="${ele.strMeal}" >
+            <h1>${ele.strMeal}</h1>
             `;
         const reservationBody = document.querySelector('.reservation-body');
         if (!tar.classList.contains('reservation-button')) return null;
@@ -59,6 +100,8 @@ export default class EventListerners {
         underSpace.innerHTML = underSpaceContent;
         foodTag.style.display = 'none';
         reservationBody.classList.add('active');
+      })
+    })
       });
     }
 

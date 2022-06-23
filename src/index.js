@@ -4,12 +4,14 @@ import './style.scss';
 import EventListerners from './modules/ReservationEventListener';
 import getData from './foodapi.js';
 import AddReservation from './modules/AddReservation';
+// import { specialID } from './modules/AddReservation'
+// const individualAPI = EventListerners.fetchIt()
+// export { individualAPI }
+getData();
 
 EventListerners.buttonSubmit();
-// import './style.css';
-
+// specialID()
 // load the basic info
-getData();
 EventListerners.reserveBtn();
 EventListerners.closeBtn();
 AddReservation.getDataToUse();

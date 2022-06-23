@@ -135,12 +135,20 @@ footer {
 
   .under-space {
     width: 100%;
-    // background-color: #8d4502;
     display: flex;
     justify-content: center;
     align-items: center;
     border: #8d4502 solid 3px;
-    height: 10%;
+    border-radius: 10px;
+  }
+
+  h3 .instruction-span {
+    color: #8d4502;
+    border: 5px solid green;
+  }
+
+  .instruction-reserve-h3 {
+    font-size: 20px;
   }
 
   .reservation-comments {

@@ -2,6 +2,17 @@
 import FetchRequestClass from './MicroverseAPI.js';
 import ReservationClass from './ReservationClass.js';
 
+// const specialID = () => {
+// const mainBody = document.querySelector('.product');
+//     mainBody.addEventListener('click', (e) => {
+//     const tar = e.target;
+//     if (!tar.classList.contains('reservation-button')) return;
+//     else {
+//     const num =  tar.getAttribute('id')
+//      return num
+//     }
+//     })
+//   }
 export default class AddReservation {
     static getData = async ({ url }) => {
       try {
@@ -37,7 +48,7 @@ export default class AddReservation {
 
     static getDataToUse = async () => {
       try {
-        const URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations?item_id=700';
+        const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations?item_id=50`;
         const objfromAPI = await AddReservation.getData({ url: URL });
         return objfromAPI;
       } catch (error) {

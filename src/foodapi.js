@@ -18,7 +18,7 @@ const getData = async () => {
             </div>
             <div class="button-cont">
                 <button class="button comment-button" id="com${index}">Comment</button>
-                <button class="button reservation-button" id="${index}">Reservation</button>
+                <button class="button reservation-button" id="${element.idMeal}">Reservation</button>
             </div>
         </div>
             <a href="#" target="_blank" rel="noopener noreferrer" class="fas fa-thumbs-up like" id="like"></a>
