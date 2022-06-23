@@ -1,11 +1,12 @@
-import { get } from 'lodash';
-import {getLikes, postLike} from './modules/likeapi.js'
 
 const container = document.getElementById('product');
+const Title = document.getElementById('coutItem');
+console.log(Title)
 const image = new Image();
+const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
 
 const getData = async () => {
-  await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood')
+  await fetch(url)
     .then((res) => res.json())
     .then((res) => {
       res.meals.forEach((element, index) => {
@@ -28,7 +29,28 @@ const getData = async () => {
             <button data-index="${element.idMeal}" class="like monlien" id="${index}"><i class="fas fa-thumbs-up"></i></button>
             </div>`;
       });
+      
     });
 };
+// for (let index = 0; index < res.meals.length; index++) {
+//             console.log(index)
+           
+//           }
+const countItem = async () => {
+    //console.log('in')
+    await fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        Title.textContent = 'Discover our rich menu with '+ res.meals.length+' plats';        
+      });
+}
 
-export default getData;
+const getArraySize = (array) => {
+    return array.length;
+}
+//export default getData;
+export {
+    getData,
+    countItem,
+    getArraySize,
+  };

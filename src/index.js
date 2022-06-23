@@ -2,7 +2,7 @@
 import _ from 'lodash';
 import './style.scss';
 import EventListerners from './modules/ReservationEventListener';
-import getData from './foodapi.js';
+import {getData, countItem} from './foodapi.js';
 import {getLikes, postLike} from './modules/likeapi.js'
 EventListerners.buttonSubmit();
 // import './style.css';
@@ -14,8 +14,9 @@ EventListerners.reserveBtn();
 EventListerners.closeBtn();
 
 
-console.log(getLikes())
 
+
+console.log(countItem())
 //call the view in the main page
 window.onload = () => {
   let likeBtn;
