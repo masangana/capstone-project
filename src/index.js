@@ -13,9 +13,6 @@ getData();
 EventListerners.reserveBtn();
 EventListerners.closeBtn();
 
-
-
-console.log(countItem())
 //call the view in the main page
 window.onload = () => {
   let likeBtn;
@@ -23,8 +20,7 @@ window.onload = () => {
   setTimeout(() => {
 
     let commentbutton = document.querySelectorAll('.comment-button')
-    
-    console.log(commentbutton)
+
     //show the like
     likeNumber = document.querySelectorAll('.likeNumber');
     likeNumber.forEach((element) => {
@@ -42,10 +38,24 @@ window.onload = () => {
     })
     //like button setup for action
     likeBtn = document.querySelectorAll('.like');
-    likeBtn.forEach((element) => {
-      element.addEventListener("click", () => {
-        postLike(element.getAttribute("data-index"));
-        getData();
+    likeBtn.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        
+        //
+        likeNumber.forEach((Number)=> {
+          const vuelikeUpdate = async () => {
+          const result = await getLikes()
+          result.forEach((el) => {
+            let exists = Object.values(el).includes(Number.getAttribute("data-index") );
+            if (exists) {
+              return Number.textContent = el.likes; 
+            }
+          })
+        };
+        vuelikeUpdate()
+        
+        })
+        postLike(btn.getAttribute("data-index"));
       });
     });
   }, "1000")
