@@ -50,7 +50,7 @@ const getData = async () => {
                     <button class="button reservation-button" id="${index}">Reservation</button>
                 </div>
             </div>
-                <a data-index="${element.idMeal}" href="#" class="fas fa-thumbs-up like monlien" id="like"></a>
+            <button data-index="${element.idMeal}" class="like monlien" id="${index}"><i class="fas fa-thumbs-up"></i></button>
             </div>`;
         //getit2(element.idMeal)
       });
