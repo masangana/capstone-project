@@ -43,7 +43,7 @@ const getData = async () => {
                 <h5>${element.strMeal}</h5>
                 <div class="star">
                     <i class="fas fa-star"></i>
-                    <span>${element.idMeal}</span>
+                    <span data-index="${element.idMeal}" class="likeNumber">${element.idMeal}</span>
                     </div>
                 <div class="button-cont">
                     <button class="button comment-button" id="com${index}">Comment</button>

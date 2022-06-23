@@ -13,23 +13,38 @@ getData();
 EventListerners.reserveBtn();
 EventListerners.closeBtn();
 
-postLike(52819)
-postLike(53043);
-postLike(52944);
 
-getLikes(); 
-
+console.log(getLikes())
 
 //call the view in the main page
 window.onload = () => {
   let likeBtn;
+  let likeNumber;
   setTimeout(() => {
+    
+    //show the like
+    likeNumber = document.querySelectorAll('.likeNumber');
+    likeNumber.forEach((element) => {
+      element.textContent ='0'
+      const vuelike = async () => {
+        const result = await getLikes()
+        result.forEach((el) => {
+          let exists = Object.values(el).includes(element.getAttribute("data-index") );
+          if (exists) {
+            return element.textContent = el.likes;  
+          }
+        })
+      };
+      vuelike()
+    })
+    //like button setup for action
     likeBtn = document.querySelectorAll('.like');
     likeBtn.forEach((element) => {
       element.addEventListener("click", () => {
         postLike(element.getAttribute("data-index"));
+        getData();
         setTimeout(() => {
-          console.log(getLikes());
+           
         }, "1000")
         
       });
@@ -38,3 +53,4 @@ window.onload = () => {
 };
 
 
+getLikes(); 
