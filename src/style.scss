@@ -84,16 +84,18 @@ footer {
 
 //   Reservation
 .reservation-body {
-    width: 70vw;
-    height: 120vh;
+    // width: 70vw;
+    padding: 50px;
+    // background-color: green;
+    // height: 120vh;
     border: 2px solid transparent;
-
+margin-bottom: 100px;
 
     // position: fixed;
     margin: auto auto;
 // background-color: green;
-  left: 10%;
-  bottom: 5%;
+  // left: 10%;
+  // bottom: 5%;
   display: none;
 //   z-index: 20;
 //   backdrop-filter: blur(2px);
@@ -135,12 +137,20 @@ footer {
 
   .under-space {
     width: 100%;
-    // background-color: #8d4502;
     display: flex;
     justify-content: center;
     align-items: center;
     border: #8d4502 solid 3px;
-    height: 10%;
+    border-radius: 10px;
+  }
+
+  h3 .instruction-span {
+    color: #8d4502;
+    border: 5px solid green;
+  }
+
+  .instruction-reserve-h3 {
+    font-size: 20px;
   }
 
   .reservation-comments {

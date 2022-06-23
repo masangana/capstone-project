@@ -2,16 +2,30 @@
 import _ from 'lodash';
 import './style.scss';
 import EventListerners from './modules/ReservationEventListener';
+import AddReservation from './modules/AddReservation';
 import {getData, countItem} from './foodapi.js';
 import {getLikes, postLike} from './modules/likeapi.js'
-EventListerners.buttonSubmit();
-// import './style.css';
 
-
-
+// import { specialID } from './modules/AddReservation'
+// const individualAPI = EventListerners.fetchIt()
+// export { individualAPI }
 getData();
-EventListerners.reserveBtn();
-EventListerners.closeBtn();
+
+
+
+
+// const IDnum = () =>   {
+//     window.addEventListener('load', () => {
+//        setTimeout(function() {
+//        const allOF = document.querySelectorAll('.reservation-button')
+//        allOF.forEach((button) => {
+//         console.log(button.getAttribute('id'))
+//        })
+//    }, 500)
+//     })
+//    }
+
+//    IDnum()
 
 //call the view in the main page
 window.onload = () => {
@@ -62,3 +76,10 @@ window.onload = () => {
 };
 
 
+EventListerners.buttonSubmit();
+// specialID()
+// load the basic info
+EventListerners.reserveBtn();
+EventListerners.closeBtn();
+AddReservation.getDataToUse();
+EventListerners.windowLoad()
