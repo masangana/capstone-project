@@ -13,6 +13,12 @@ getData();
 EventListerners.reserveBtn();
 EventListerners.closeBtn();
 
+setTimeout(() => {
+// Update Likes
+
+}, "1000")
+
+
 
 
 
@@ -42,13 +48,9 @@ window.onload = () => {
     likeBtn.forEach((element) => {
       element.addEventListener("click", () => {
         postLike(element.getAttribute("data-index"));
-        
-        setTimeout(() => {
-        
-        }, "1000")
-        
       });
     });
   }, "1000")
 };
+
 

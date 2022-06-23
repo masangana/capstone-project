@@ -3,7 +3,7 @@ const container = document.getElementById('product');
 const Title = document.getElementById('coutItem');
 console.log(Title)
 const image = new Image();
-const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
+const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=beef';
 
 const getData = async () => {
   await fetch(url)
@@ -32,12 +32,8 @@ const getData = async () => {
       
     });
 };
-// for (let index = 0; index < res.meals.length; index++) {
-//             console.log(index)
-           
-//           }
+
 const countItem = async () => {
-    //console.log('in')
     await fetch(url)
       .then((res) => res.json())
       .then((res) => {
@@ -45,12 +41,8 @@ const countItem = async () => {
       });
 }
 
-const getArraySize = (array) => {
-    return array.length;
-}
 //export default getData;
 export {
     getData,
     countItem,
-    getArraySize,
   };

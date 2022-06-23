@@ -206,7 +206,6 @@ footer {
     padding: 10px 12px;
     border: 1px solid $color-orange;
     border-radius: 20px;
-    cursor: pointer;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.09);
     margin: 15px 20px;
     position: relative;
@@ -252,6 +251,7 @@ footer {
       position: absolute;
       bottom: 20px;
       right: 15px;
+      cursor: pointer;
     }
   }
 }
