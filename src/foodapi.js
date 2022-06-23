@@ -10,19 +10,7 @@ const getData = async () => {
     .then((res) => {
       res.meals.forEach((element, index) => {
         image.src = element.strMealThumb;
-        const getit = async (id)=>{
-            const likes = await getLikes()
-            let filteredResult
-             filteredResult = likes.find((e) => e.item_id == id);
-             let likeNumber
-             if (likeNumber !== undefined) {
-                likeNumber = filteredResult.likes
-             }else{
-                likeNumber = filteredResult.likes
-             }
-            
-             //return filteredResult.likes
-        }
+        
         container.innerHTML += `
             <div class="pro">
             <img src="${image.src}" alt="" srcset="">
@@ -39,7 +27,6 @@ const getData = async () => {
             </div>
             <button data-index="${element.idMeal}" class="like monlien" id="${index}"><i class="fas fa-thumbs-up"></i></button>
             </div>`;
-        //getit2(element.idMeal)
       });
     });
 };
