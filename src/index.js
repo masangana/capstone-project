@@ -9,6 +9,7 @@ import {getLikes, postLike} from './modules/likeapi.js'
 // import { specialID } from './modules/AddReservation'
 // const individualAPI = EventListerners.fetchIt()
 // export { individualAPI }
+countItem()
 getData();
 
 
