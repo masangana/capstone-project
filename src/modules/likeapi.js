@@ -19,8 +19,15 @@ const getLikes = async () => {
     return likes;
   };
 
+
+  const getCom = async (idIem) => {
+    const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations?item_id=${idIem}`);
+    const likes = await response.json();
+    return likes;
+  };
   
   export {
     postLike,
     getLikes,
+    getCom,
   };

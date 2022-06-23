@@ -46,19 +46,22 @@ export default class AddReservation {
       }
     }
 
-    static getDataToUse = async () => {
+    static getDataToUse = async (idIem) => {
       try {
-    const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations?item_id=100`;
+    const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations?item_id=${idIem}`;
         const objfromAPI = await AddReservation.getData({ url: URL });
         return objfromAPI;
       } catch (error) {
         throw new Error(error);
       }
+      setTimeout(() => {
+        
+      }, 1000);
     }
 
-    static displayOnUI = async () => {
+    static displayOnUI = async (idIem) => {
       try {
-        const fromAPI = await AddReservation.getDataToUse();
+        const fromAPI = await AddReservation.getDataToUse(idIem);
         fromAPI.forEach((one) => {
           AddReservation.htmlForReservationDOM(one);
         });
