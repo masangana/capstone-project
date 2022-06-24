@@ -44,7 +44,7 @@ export default class FetchRequestClass {
        }
 
        postComments = async (itemID, name, comment) => {
-         fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/comments', {
+         const xxx = fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/comments', {
            method: 'POST',
            headers: {
              'Content-Type': 'application/json',
@@ -55,5 +55,6 @@ export default class FetchRequestClass {
              comment,
            }),
          });
+         return xxx;
        }
 }
