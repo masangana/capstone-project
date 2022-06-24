@@ -60,4 +60,31 @@ export default class FetchRequestClass {
         });
         return xxx;
       }
-}
+
+
+      getReservation = async (id) => {
+        const comments = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations?item_id=${id}`);
+        const data = await comments.json();
+        return data;
+      }
+
+
+      postReservation = async (itemID, name, dateStart, dateEnd) => {
+        const xxx = fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            item_id: itemID,
+            date_start: dateStart,
+            date_end: dateEnd,
+            username: name
+          }),
+        });
+        return xxx;
+      }
+
+
+
+    }
