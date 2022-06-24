@@ -22,8 +22,7 @@
   - BEM
 
 ## Live Demo
-Click on this link to see this project live demo: [Live Demo Link](https://masangana.github.io/capstone-project/dist
-)
+Click on this link to see this project live demo: [Live Demo Link](https://masangana.github.io/capstone-project/)
 
 ## Getting Started
 
