@@ -34,7 +34,7 @@ To get a local copy up and running follow these simple example steps.
 - NPM (Node Package Manager)
 
 ### Setup
-
+Kindly feel free to check the video where we explained the code we wrote in details `https://drive.google.com/file/d/1vzdaBGq-gmMiTdVIqZhOze4qmZf7gnAM/view?usp=sharing`
 Download the code from this repository.
 
 ### Install
