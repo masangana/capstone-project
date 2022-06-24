@@ -42,7 +42,7 @@ export default class Util {
      }
      storedReserve.forEach((item) => {
        const commentParagraph = document.createElement('p');
-       commentParagraph.innerHTML = `${item.date_start} <span class='comment-username'> ${item.date_end}:</span>   ${item.username}`;
+       commentParagraph.innerHTML = `${item.date_start.replace(/-/ig, '/')} - <span class='comment-username'> ${item.date_end.replace(/-/ig, '/')} by</span> ${item.username}`;
        modalContainer.commentDiv.appendChild(commentParagraph);
      });
    }
