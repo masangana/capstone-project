@@ -19,6 +19,34 @@ export default class Util {
      return count;
    }
 
+   reserveCounter = (comments) => {
+     let count = 0;
+     comments.forEach(() => {
+       count += 1;
+     });
+     return count;
+   }
+
+   loadReservations = (storedReserve, modalContainer) => {
+     modalContainer.commentDiv.innerHTML = '';
+     let numResve;
+     if (storedReserve.error) {
+       numResve = '';
+     } else {
+       numResve = this.reserveCounter(storedReserve);
+     }
+     modalContainer.commentHeader.innerHTML = `Resevations(${numResve})`;
+     modalContainer.commentDiv.appendChild(modalContainer.commentHeader);
+     if (storedReserve.error) {
+       return;
+     }
+     storedReserve.forEach((item) => {
+       const commentParagraph = document.createElement('p');
+       commentParagraph.innerHTML = `${item.date_start} <span class='comment-username'> ${item.date_end}:</span>   ${item.username}`;
+       modalContainer.commentDiv.appendChild(commentParagraph);
+     });
+   }
+
    loadComments = (storedComments, modalContainer) => {
      modalContainer.commentDiv.innerHTML = '';
      let numComments;

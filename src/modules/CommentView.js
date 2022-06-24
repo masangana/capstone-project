@@ -1,7 +1,7 @@
 class CommentView {
    createModal = () => {
      const modal = document.createElement('div');
-     const modalHeader = document.createElement('modal-header');
+     const modalHeader = document.createElement('div');
      const modalBody = document.createElement('div');
      const modalTitle = document.createElement('h3');
      const modalClose = document.createElement('button');

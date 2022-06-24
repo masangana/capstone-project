@@ -21,7 +21,7 @@ const getData = async () => {
                     <span data-index="${element.idMeal}" class="likeNumber">0</span>
                     </div>
                 <div class="button-cont">
-                    <button data-index="${element.idMeal}" class="button comment-button" id="com${element.idMeal}">Comment</button>
+                    <button data-index="${element.idMeal}" class="button comment-button" id="${element.idMeal}">Comment</button>
                     <button data-index="${element.idMeal}" class="button reservation-button" id="${element.idMeal}">Reservation</button>
                 </div>
             </div>

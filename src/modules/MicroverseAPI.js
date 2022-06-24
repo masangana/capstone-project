@@ -34,6 +34,7 @@ export default class FetchRequestClass {
           throw new Error(error);
         }
       }
+
       getItemByID = async (id) => {
         const item = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
           .then((response) => response.json());
@@ -59,5 +60,11 @@ export default class FetchRequestClass {
           }),
         });
         return xxx;
+      }
+
+      getReserve = async (id) => {
+        const comments = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations?item_id=${id}`);
+        const data = await comments.json();
+        return data;
       }
 }

@@ -3,17 +3,20 @@
 import _ from 'lodash';
 import './style.scss';
 // import EventListerners from './modules/ReservationEventListener';
-import AddReservation from './modules/AddReservation';
+
 import { getData, countItem } from './foodapi.js';
 import { getLikes, postLike, getCom } from './modules/likeapi.js';
-import openPopup from './modules/displayModal.js';
-import ReservationClass from './modules/ReservationClass.js';
+
 import API from './modules/MicroverseAPI';
 import ModalView from './modules/CommentView';
+import ReservationView from './modules/ReservationView';
 import Util from './modules/Util';
 
 const modalView = new ModalView();
 const modalContainer = modalView.createModal();
+
+const reserve = new ReservationView();
+const recont = reserve.createModal();
 
 const api = new API();
 const util = new Util();
@@ -45,9 +48,11 @@ getData();
 window.onload = () => {
   let likeBtn;
   let likeNumber;
+
   setTimeout(() => {
     // commet section code starts
     const popupButton = document.querySelectorAll('.comment-button');
+    const reservationbtn = document.querySelectorAll('.reservation-button');
     popupButton.forEach((pupup) => {
       pupup.addEventListener('click', async (e) => {
         const id = e.target.getAttribute('data-index');
@@ -91,81 +96,24 @@ window.onload = () => {
     });
 
     // comment section code ends
-    // create reservation
-    const reservationbtn = document.querySelectorAll('.reservation-button');
-    // console.log(reservationbtn)
-    reservationbtn.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const vupopup = async () => {
-          const vueComment = async () => {
-            // UL.innerHTML = ''
-            const result = await getCom(btn.getAttribute('data-index'));
-            console.log(result);
-          };
-          vueComment();
-          openPopup(btn.getAttribute('data-index'));
-          setTimeout(() => {
-            const formSub = document.getElementById(btn.getAttribute('data-index'));
-            // console.log(formSub)
-
-            const UL = document.querySelector('.reservation-ul');
-            formSub.addEventListener('submit', async (e) => {
-              const [username, dateStart, dateEnd] = Array.from(formSub.elements);
-              const user = username.value;
-              const start = dateStart.value;
-              const end = dateEnd.value;
-              const idTem = btn.getAttribute('data-index');
-              console.log(user, start, end, idTem);
-              const ReservationClas = new ReservationClass(idTem, user, start, end);
-              const URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations/';
-              const creatNew = AddReservation.postData(ReservationClas, URL);
-              username.value = '';
-              dateStart.value = '';
-              dateEnd.value = '';
-              UL.innerHTML = '';
-
-              setTimeout(() => {
-                // UL.innerHTML = ''
-                console.log(idTem);
-                // AddReservation.displayOnUI(idTem)
-              }, 1000);
-
-              const vueComment = async () => {
-                // UL.innerHTML = ''
-                const result = await getCom(idTem);
-                console.log(result);
-              };
-              vueComment();
-
-              return creatNew;
-            });
-          }, 1000);
-        };
-        // console.log(btn.getAttribute("data-index"))
-        vupopup();
+    // reserve start
+    reservationbtn.forEach((pupup) => {
+      pupup.addEventListener('click', async (e) => {
+        const id = e.target.getAttribute('data-index');
+        const res = await api.getItemByID(id);
+        const modal = document.querySelector('.modal');
+        modal.setAttribute('dataset', `${id}`);
+        recont.modalTitle.innerHTML = res.meals[0].strMeal; 
+        recont.modalClose.innerHTML = '&times;';
+        recont.itemImg.setAttribute('src', `${res.meals[0].strMealThumb}`);
+        recont.itemDescription.innerHTML = `${res.meals[0].strInstructions}`;
+        console.log(modal);
+        const storedReserve = await api.getReserve(id);
+        util.loadReservations(storedReserve, recont);
+        util.openModal(modal, overlay);
       });
     });
-    // end reservation
-    // submit form
-
-    // end
-    // create submi btn
-
-    const submitBtn = document.querySelectorAll('.sendBtn');
-    console.log(submitBtn);
-    submitBtn.forEach((subBtn) => {
-      // console.log(subBtn);
-      subBtn.addEventListener('click', () => {
-        const senData = async () => {
-          console.log(subBtn.getAttribute('data-index'));
-        };
-        // console.log(btn.getAttribute("data-index"))
-        senData();
-      });
-    });
-
-    // end
-
+    // reserve end
     // show the like
     likeNumber = document.querySelectorAll('.likeNumber');
     likeNumber.forEach((element) => {
