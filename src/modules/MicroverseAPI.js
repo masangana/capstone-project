@@ -34,4 +34,30 @@ export default class FetchRequestClass {
           throw new Error(error);
         }
       }
+      getItemByID = async (id) => {
+        const item = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+          .then((response) => response.json());
+        return item;
+      }
+
+      getComments = async (id) => {
+        const comments = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/comments?item_id=${id}`);
+        const data = await comments.json();
+        return data;
+      }
+
+      postComments = async (itemID, name, comment) => {
+        const xxx = fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/comments', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            item_id: itemID,
+            username: name,
+            comment,
+          }),
+        });
+        return xxx;
+      }
 }
