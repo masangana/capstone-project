@@ -1,4 +1,3 @@
-
 const container = document.getElementById('product');
 const Title = document.getElementById('coutItem');
 const image = new Image();
@@ -10,7 +9,7 @@ const getData = async () => {
     .then((res) => {
       res.meals.forEach((element, index) => {
         image.src = element.strMealThumb;
-        
+
         container.innerHTML += `
             <div class="pro">
             <img src="${image.src}" alt="" srcset="">
@@ -21,28 +20,26 @@ const getData = async () => {
                     <span data-index="${element.idMeal}" class="likeNumber">0</span>
                     </div>
                 <div class="button-cont">
-                    <button data-index="${element.idMeal}" class="button comment-button" id="${element.idMeal}">Comment</button>
+                    <button data-index="${element.idMeal}" class="button comment-button" id="com${element.idMeal}">Comment</button>
                     <button data-index="${element.idMeal}" class="button reservation-button" id="${element.idMeal}">Reservation</button>
                 </div>
             </div>
             <button data-index="${element.idMeal}" class="like monlien" id="${index}"><i class="fas fa-thumbs-up"></i></button>
             </div>`;
       });
-      
     });
 };
 
-
 const countItem = async () => {
-    await fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        Title.textContent = 'Discover our rich menu with '+ res.meals.length+' plats';        
-      });
-}
+  await fetch(url)
+    .then((res) => res.json())
+    .then((res) => {
+      Title.textContent = `Discover our rich menu with ${res.meals.length} plates`;
+    });
+};
 
-//export default getData;
+// export default getData;
 export {
-    getData,
-    countItem,
-  };
+  getData,
+  countItem,
+};
