@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable consistent-return */
 // eslint-disable-next-line no-unused-vars
 /* eslint-disable import/extensions */
@@ -22,11 +23,13 @@ const overlay = document.createElement('div');
 document.body.appendChild(overlay);
 overlay.classList.add('overlay');
 
-countItem();
-getData();
-
 // call the view in the main page
-window.onload = () => {
+window.onload = async () => {
+  const count = await countItem();
+  count;
+  const data = await getData();
+  data;
+
   // commet section code starts
   const popupButton = document.querySelectorAll('.comment-button');
   const reservationbtn = document.querySelectorAll('.reservation-button');

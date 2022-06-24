@@ -1,5 +1,9 @@
+/* eslint-disable no-sequences */
+/* eslint-disable no-unused-expressions */
 const container = document.getElementById('product');
 const Title = document.getElementById('coutItem');
+const deliciousMeals = document.querySelector('#navlist .delicious-meals');
+
 const image = new Image();
 const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=beef';
 
@@ -34,7 +38,8 @@ const countItem = async () => {
   await fetch(url)
     .then((res) => res.json())
     .then((res) => {
-      Title.textContent = `Discover our rich menu with ${res.meals.length} plates`;
+      Title.textContent = `Discover our rich menu with ${res.meals.length} plates`,
+      deliciousMeals.textContent = `Delicious Meals (${res.meals.length})`;
     });
 };
 
