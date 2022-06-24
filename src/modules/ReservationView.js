@@ -1,7 +1,7 @@
 class ReservationView {
   createModal = () => {
     const modal = document.createElement('div');
-    const modalHeader = document.createElement('modal-header');
+    const modalHeader = document.createElement('div');
     const modalBody = document.createElement('div');
     const modalTitle = document.createElement('h3');
     const modalClose = document.createElement('button');
@@ -16,17 +16,18 @@ class ReservationView {
     const commentDiv = document.createElement('div');
     const commentHeader = document.createElement('h3');
     const formHeader = document.createElement('h3');
-    modal.classList.add('modal');
-    modalHeader.classList.add('modal-header');
-    modalTitle.classList.add('title');
-    modalClose.classList.add('close-button');
-    modalBody.classList.add('modal-body');
-    name.classList.add('comment-name');
-    // comment.classList.add('comment');
+    modal.classList.add('remodal');
+    modalHeader.classList.add('remodal-header');
+    modalTitle.classList.add('retitle');
+    modalClose.classList.add('reclose-button');
+    modalBody.classList.add('remodal-body');
+    name.classList.add('recomment-name');
+    startDate.classList.add('start-date');
+    endDate.classList.add('end-date');
     startDate.setAttribute('type', 'date');
     endDate.setAttribute('type', 'date');
-    commentDiv.classList.add('comment-container');
-    commentForm.classList.add('comment-form');
+    commentDiv.classList.add('recomment-container');
+    commentForm.classList.add('recomment-form');
 
     modal.setAttribute('id', 'modal');
     itemImg.setAttribute('height', '100');

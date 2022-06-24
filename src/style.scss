@@ -318,7 +318,7 @@ margin-bottom: 100px;
   }
 }
 }
-.modal {
+.modal, .remodal {
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -340,10 +340,10 @@ margin-bottom: 100px;
 		line-height: 24px;
 	}
 }
-.modal.active {
+.modal.active, .remodal.active {
 	transform: translate(-50%, -50%) scale(1);
 }
-.modal-header {
+.modal-header, .remodal-header {
 	padding: 10px 15px;
 	display: flex;
 	justify-content: space-between;
@@ -364,7 +364,7 @@ margin-bottom: 100px;
 		font-weight: bold;
 	}
 }
-.comment-container {
+.comment-container, .recomment-container {
 	h3 {
 		text-align: center;
 		color: #e06e04;
@@ -373,7 +373,7 @@ margin-bottom: 100px;
 		margin: 15px auto;
 	}
 }
-.comment-form {
+.comment-form, .recomment-form {
 	h3 {
 		text-align: center;
 		color: #e06e04;
@@ -409,7 +409,7 @@ margin-bottom: 100px;
 	color: #5799ef;
 	font-weight: 800;
 }
-.modal-body {
+.modal-body, .remodal-body {
 	padding: 10px 15px;
 	img {
 		display: block;

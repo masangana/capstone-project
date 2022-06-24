@@ -25,24 +25,8 @@ const overlay = document.createElement('div');
 document.body.appendChild(overlay);
 overlay.classList.add('overlay');
 
-// import { specialID } from './modules/AddReservation'
-// const individualAPI = EventListerners.fetchIt()
-// export { individualAPI }
 countItem();
 getData();
-
-// const IDnum = () =>   {
-//     window.addEventListener('load', () => {
-//        setTimeout(function() {
-//        const allOF = document.querySelectorAll('.reservation-button')
-//        allOF.forEach((button) => {
-//         console.log(button.getAttribute('id'))
-//        })
-//    }, 500)
-//     })
-//    }
-
-//    IDnum()
 
 // call the view in the main page
 window.onload = () => {
@@ -101,18 +85,46 @@ window.onload = () => {
       pupup.addEventListener('click', async (e) => {
         const id = e.target.getAttribute('data-index');
         const res = await api.getItemByID(id);
-        const modal = document.querySelector('.modal');
+        const modal = document.querySelector('.remodal');
         modal.setAttribute('dataset', `${id}`);
-        recont.modalTitle.innerHTML = res.meals[0].strMeal; 
+        recont.modalTitle.innerHTML = res.meals[0].strMeal;
         recont.modalClose.innerHTML = '&times;';
         recont.itemImg.setAttribute('src', `${res.meals[0].strMealThumb}`);
         recont.itemDescription.innerHTML = `${res.meals[0].strInstructions}`;
-        console.log(modal);
         const storedReserve = await api.getReserve(id);
         util.loadReservations(storedReserve, recont);
         util.openModal(modal, overlay);
       });
     });
+
+    recont.submitButton.addEventListener('click', async (e) => {
+      const commentName = document.querySelector('.recomment-name');
+      const startDate = document.querySelector('.start-date');
+      const endDate = document.querySelector('.end-date');
+      const itemID = e.target.closest('.remodal').getAttribute('dataset');
+      if (commentName.value === '' || startDate.value === '' || endDate.value === '') {
+        return;
+      }
+      api.postreservations(itemID, commentName.value, startDate.value, endDate.value)
+        .then(() => api.getReserve(itemID))
+        .then((storedComments) => {
+          util.loadReservations(storedComments, recont);
+          commentName.value = '';
+          startDate.value = '';
+          endDate.value = '';
+        });
+    });
+    recont.modalClose.addEventListener('click', (e) => {
+      const modal = (e.target.closest('.remodal'));
+      util.closeModal(modal, overlay);
+    });
+    overlay.addEventListener('click', () => {
+      const modals = document.querySelectorAll('.remodal.active');
+      modals.forEach((modal) => {
+        util.closeModal(modal, overlay);
+      });
+    });
+
     // reserve end
     // show the like
     likeNumber = document.querySelectorAll('.likeNumber');

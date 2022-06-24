@@ -67,4 +67,20 @@ export default class FetchRequestClass {
         const data = await comments.json();
         return data;
       }
+
+      postreservations = async (itemID, name, startDate, endDate) => {
+        const xxx = fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ed0LORUs5gJKQQ4QLOxZ/reservations', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            item_id: itemID,
+            username: name,
+            date_start: startDate,
+            date_end: endDate,
+          }),
+        });
+        return xxx;
+      }
 }
