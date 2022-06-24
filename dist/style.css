@@ -12,7 +12,6 @@
 /* styling navlist */
 #navlist {
   background-color: #5799ef;
-  position: absolute;
   width: 100%;
   position: fixed;
   z-index: 999;
@@ -75,92 +74,17 @@ footer .link {
   color: #8d4502;
 }
 
-.reservation-body {
-  padding: 50px;
-  border: 2px solid transparent;
-  margin-bottom: 100px;
-  margin: auto auto;
-  display: none;
+.modal-body,
+.remodal-body {
+  padding: 10px 15px;
 }
-
-.reservation-body.active {
+.modal-body img,
+.remodal-body img {
   display: block;
-}
-
-.closeBTN {
-  font-size: 40px;
-  cursor: pointer;
-}
-
-.closeBTNbody {
-  position: static;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 50px;
-}
-
-.theImage {
+  margin: 10px auto;
   width: 300px;
-  border-radius: 10px;
-}
-
-.image-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  position: relative;
-}
-
-.under-space {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: #8d4502 solid 3px;
-  border-radius: 10px;
-}
-
-h3 .instruction-span {
-  color: #8d4502;
-  border: 5px solid green;
-}
-
-.instruction-reserve-h3 {
-  font-size: 20px;
-}
-
-.reservation-comments {
-  width: 50%;
-  margin: auto auto;
-}
-
-.reservation-h2 {
-  text-align: center;
-}
-
-.add-reservation {
-  text-align: center;
-  margin-top: 100px;
-}
-
-.reservation-date-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.label-it {
-  width: 150px;
-}
-
-.reservation-enddate-input, .reservation-startdate-input, .reservation-name-input {
-  width: 200px;
-}
-
-.make-submit {
-  width: 70px;
+  height: 300px;
+  border-radius: 20px;
 }
 
 .product {
@@ -200,6 +124,15 @@ h3 .instruction-span {
 .product .pro-container .pro img {
   width: 100%;
   border-radius: 20px;
+}
+.product .pro-container .pro .button > i {
+  font-size: 1em;
+  border-radius: 0;
+  border: 0 solid transparent;
+  border-width: 0 0 0 0;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  position: static;
 }
 .product .pro-container .pro .des {
   text-align: start;
@@ -256,37 +189,29 @@ h3 .instruction-span {
   border: 1px solid #ba6;
   border-width: 1px 1px 1px 1px;
   padding: 10px 20px 10px 20px;
-  box-shadow: inset 0px 1px 0px rgb(255, 255, 255), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 0 rgb(255, 255, 255), 0 1px 3px rgba(0, 0, 0, 0.3);
   color: #fff;
   font-size: 16px;
-  font-family: Helvetica Neue;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 900;
   font-style: normal;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
 }
 .product .button-cont .button > div {
   color: #999;
   font-size: 10px;
-  font-family: Helvetica Neue;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: initial;
   font-style: normal;
   text-align: center;
-  margin: 0px 0px 0px 0px;
-}
-.product .button-cont .button > i {
-  font-size: 1em;
-  border-radius: 0px;
-  border: 0px solid transparent;
-  border-width: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-  margin: 0px 0px 0px 0px;
-  position: static;
+  margin: 0 0 0 0;
 }
 .product .button-cont .button > .ld {
   font-size: initial;
 }
 
-.modal, .remodal {
+.modal,
+.remodal {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -301,7 +226,8 @@ h3 .instruction-span {
   overflow-y: scroll;
   max-height: 80%;
 }
-.modal p, .remodal p {
+.modal p,
+.remodal p {
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -309,24 +235,28 @@ h3 .instruction-span {
   line-height: 24px;
 }
 
-.modal.active, .remodal.active {
+.modal.active,
+.remodal.active {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.modal-header, .remodal-header {
+.modal-header,
+.remodal-header {
   padding: 10px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid black;
 }
-.modal-header *, .remodal-header * {
+.modal-header *,
+.remodal-header * {
   font-size: 1.5rem;
   font-weight: bold;
   color: #8d4502;
   font-family: "Crete Round", sans-serif;
 }
-.modal-header .close-button, .remodal-header .close-button {
+.modal-header .close-button,
+.remodal-header .close-button {
   cursor: pointer;
   border: none;
   outline: none;
@@ -335,7 +265,8 @@ h3 .instruction-span {
   font-weight: bold;
 }
 
-.comment-container h3, .recomment-container h3 {
+.comment-container h3,
+.recomment-container h3 {
   text-align: center;
   color: #e06e04;
   font-size: 1.25rem;
@@ -343,35 +274,41 @@ h3 .instruction-span {
   margin: 15px auto;
 }
 
-.comment-form, .recomment-form {
+.comment-form,
+.recomment-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
   justify-content: center;
   align-items: center;
 }
-.comment-form h3, .recomment-form h3 {
+.comment-form h3,
+.recomment-form h3 {
   text-align: center;
   color: #e06e04;
   font-size: 1.25rem;
   font-family: "Roboto", sans-serif;
   margin: 15px auto;
 }
-.comment-form button, .recomment-form button {
+.comment-form button,
+.recomment-form button {
   width: 100px;
   background-color: #5799ef;
   border: none;
   padding: 5px;
   color: white;
 }
-.comment-form button:active, .recomment-form button:active {
+.comment-form button:active,
+.recomment-form button:active {
   color: #aeaeae;
   background-color: #00008b;
 }
-.comment-form input, .recomment-form input {
+.comment-form input,
+.recomment-form input {
   width: 100%;
 }
-.comment-form textarea, .recomment-form textarea {
+.comment-form textarea,
+.recomment-form textarea {
   width: 100%;
   height: 200px;
 }
@@ -379,14 +316,6 @@ h3 .instruction-span {
 .comment-username {
   color: #5799ef;
   font-weight: 800;
-}
-
-.modal-body, .remodal-body {
-  padding: 10px 15px;
-}
-.modal-body img, .remodal-body img {
-  display: block;
-  margin: 10px auto;
 }
 
 .overlay {
